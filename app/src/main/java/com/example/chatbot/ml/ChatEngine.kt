@@ -27,6 +27,7 @@ class ChatEngine(context: Context) {
     private val lemmas: Map<String, String>    // e.g. "books" -> "book"
     private val responses: Map<String, List<String>>
     private val interpreter: Interpreter
+    private val encoder: TextEncoder
 
     init {
 
@@ -43,32 +44,11 @@ class ChatEngine(context: Context) {
         }
 
         interpreter = Interpreter(context.loadModelFile(Constants.ASSET_MODEL))
-    }
-
-    /** Lowercase, split off contractions, drop punctuation, then lemmatize. */
-    fun tokenize(text: String): List<String> {
-        var s = text.lowercase()
-        for (c in Constants.CONTRACTIONS) s = s.replace(c, " $c ")
-        return s.split(Regex("\\s+"))
-            .map { token ->
-                if (token in Constants.CONTRACTIONS) token
-                else token.filter { it.isLetterOrDigit() }
-            }
-            .filter { it.isNotEmpty() }
-            .map { lemmas[it] ?: it }
-    }
-
-    /** One slot per vocabulary word: 1 if present, 0 if not. */
-    fun bagOfWords(tokens: List<String>): FloatArray {
-        val bag = FloatArray(words.size)
-        for (i in words.indices) {
-            if (words[i] in tokens) bag[i] = 1f
-        }
-        return bag
+        encoder = TextEncoder(words, lemmas)
     }
 
     fun respond(text: String, fallbackText: String): Reply {
-        val bag = bagOfWords(tokenize(text))
+        val bag = encoder.encode(text)
 
         // Nothing recognised: the model would return its empty-input bias, which
         // looks confident but means nothing. Fall back instead.

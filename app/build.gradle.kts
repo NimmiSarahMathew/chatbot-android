@@ -43,4 +43,7 @@ dependencies {
     implementation("org.tensorflow:tensorflow-lite:2.17.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20240303")  // org.json is stubbed in unit tests
 }
