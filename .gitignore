@@ -1,0 +1,18 @@
+# Build output
+*.iml
+.gradle/
+build/
+app/build/
+/captures
+.externalNativeBuild
+.cxx
+
+# Machine-specific - contains the absolute path to your Android SDK
+local.properties
+
+# IDE
+.idea/
+*.hprof
+
+# OS
+.DS_Store

@@ -1,0 +1,420 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey there",
+        "Good morning",
+        "Good afternoon",
+        "Is anyone there?",
+        "Hiya",
+        "Excuse me",
+        "Heya",
+        "Yo",
+        "Howdy",
+        "Hey up",
+        "Alright?",
+        "Morning",
+        "Afternoon",
+        "Hello there",
+        "Hi there"
+      ],
+      "responses": [
+        "Hello! How can I help you at the library today?",
+        "Hi there! Looking for a book or something else?",
+        "Good day! What can I help you find?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Thanks, that's all",
+        "I'm done",
+        "Talk to you soon",
+        "Have a good day",
+        "Cheers, bye",
+        "Later",
+        "See ya"
+      ],
+      "responses": [
+        "Goodbye! Happy reading.",
+        "See you next time!",
+        "Bye - enjoy your books."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's really helpful",
+        "Thanks a lot",
+        "Brilliant, cheers",
+        "Much appreciated",
+        "Perfect, thanks",
+        "Ta",
+        "Nice one",
+        "Great, thanks"
+      ],
+      "responses": [
+        "You're very welcome!",
+        "Glad I could help.",
+        "Any time - that's what I'm here for."
+      ]
+    },
+    {
+      "tag": "capabilities",
+      "patterns": [
+        "What can you do?",
+        "How can you help me?",
+        "What do you help with?",
+        "What are your features?",
+        "Help",
+        "What can I ask you?"
+      ],
+      "responses": [
+        "I can help you join, search the catalogue, renew or reserve items, check fines, and tell you about our spaces and events.",
+        "Ask me about borrowing, renewals, reservations, opening times, computers, study rooms or events."
+      ]
+    },
+    {
+      "tag": "identity",
+      "patterns": [
+        "Who are you?",
+        "Are you a librarian?",
+        "Are you a robot?",
+        "What is your name?",
+        "Are you a real person?",
+        "Tell me about yourself"
+      ],
+      "responses": [
+        "I'm the library's assistant bot, built with Python and TensorFlow. A librarian can help with anything I can't.",
+        "I'm an automated helper. For trickier questions, our librarians are at the front desk."
+      ]
+    },
+    {
+      "tag": "opening_hours",
+      "patterns": [
+        "What time do you open?",
+        "When do you close?",
+        "What are your opening hours?",
+        "Are you open on Sunday?",
+        "Are you open late?",
+        "What time does the library shut?",
+        "Are you open bank holidays?",
+        "Opening times please"
+      ],
+      "responses": [
+        "We're open 9am to 7pm Monday to Friday, 9am to 5pm Saturday, and 11am to 4pm Sunday.",
+        "Weekdays 9am until 7pm, weekends shorter. We close on bank holidays."
+      ]
+    },
+    {
+      "tag": "getting_here",
+      "patterns": [
+        "Where are you?",
+        "What's the address?",
+        "How do I get to the library?",
+        "Is there parking nearby?",
+        "Which bus goes to the library?",
+        "How do I find you?",
+        "Is it near the station?"
+      ],
+      "responses": [
+        "We're on the high street opposite the town hall. There's a car park behind the building, free for two hours.",
+        "Ten minutes' walk from the station, and buses 4, 12 and 27 stop outside. Want directions?"
+      ]
+    },
+    {
+      "tag": "join_library",
+      "patterns": [
+        "How do I join?",
+        "I want a library card",
+        "How do I become a member?",
+        "Can I sign up?",
+        "Is joining free?",
+        "What do I need to register?",
+        "Can I join online?",
+        "How do I get a card?"
+      ],
+      "responses": [
+        "Joining is free. Bring proof of name and address, or start the form online and finish it at the desk.",
+        "You can sign up online in about five minutes, or come in with ID and we'll do it there and then."
+      ]
+    },
+    {
+      "tag": "borrowing_limits",
+      "patterns": [
+        "How many books can I borrow?",
+        "How long can I keep a book?",
+        "What's the loan period?",
+        "Can I take out DVDs?",
+        "How many items at once?",
+        "How long do I have to read it?",
+        "What's my borrowing limit?"
+      ],
+      "responses": [
+        "You can borrow up to 15 items for three weeks. DVDs and new releases are one week.",
+        "15 items at a time, three weeks each, renewable twice if nobody's reserved them."
+      ]
+    },
+    {
+      "tag": "renew_loan",
+      "patterns": [
+        "I want to renew my books",
+        "Can I extend my loan?",
+        "Renew my library items",
+        "I need more time with this book",
+        "How do I renew online?",
+        "Can I keep it another week?",
+        "Extend my borrowing"
+      ],
+      "responses": [
+        "I can renew that for you. Items renew twice unless someone has reserved them.",
+        "Renewals are easy online, by phone, or here. Would you like me to renew everything on your account?"
+      ]
+    },
+    {
+      "tag": "return_item",
+      "patterns": [
+        "Where do I return my books?",
+        "How do I give the book back?",
+        "Is there a drop box?",
+        "Can I return to a different branch?",
+        "Where's the returns desk?",
+        "Can I return books when you're closed?"
+      ],
+      "responses": [
+        "Return them at the desk, or use the 24-hour drop box by the main entrance.",
+        "Any branch will take them back, and the drop box outside works when we're closed."
+      ]
+    },
+    {
+      "tag": "reserve_item",
+      "patterns": [
+        "Can I reserve a book?",
+        "I want to place a hold",
+        "Put a book on hold for me",
+        "How do I request a title?",
+        "Can you save a copy for me?",
+        "Reserve this for me please",
+        "Add me to the waiting list"
+      ],
+      "responses": [
+        "Yes - reservations are free and we'll text you when it's ready to collect.",
+        "I can place a hold. You'll get a message when it arrives, and it's kept for a week."
+      ]
+    },
+    {
+      "tag": "search_catalogue",
+      "patterns": [
+        "Do you have this book?",
+        "I'm looking for a title",
+        "Have you got anything by this author?",
+        "Where would I find history books?",
+        "Do you stock large print?",
+        "Can you search the catalogue?",
+        "I need a book about gardening",
+        "Which shelf is fiction on?"
+      ],
+      "responses": [
+        "I can search the catalogue. What's the title or author?",
+        "Tell me the title, author or subject and I'll check what's on the shelves."
+      ]
+    },
+    {
+      "tag": "fines_charges",
+      "patterns": [
+        "Do I owe anything?",
+        "How much are late fees?",
+        "I have a fine to pay",
+        "What happens if I'm late?",
+        "Can I pay my fine online?",
+        "Do you still charge fines?",
+        "Check my account balance"
+      ],
+      "responses": [
+        "Late charges are 10p per item per day, capped at £5. Children's items have no charges at all.",
+        "I can check your balance. Fines are payable at the desk, online, or by card here."
+      ]
+    },
+    {
+      "tag": "lost_damaged",
+      "patterns": [
+        "I've lost a library book",
+        "I damaged a book",
+        "My book got wet",
+        "I can't find the book I borrowed",
+        "What if I lose an item?",
+        "My dog chewed the book",
+        "I spilled coffee on it"
+      ],
+      "responses": [
+        "It happens - let a librarian know and we'll work out a replacement cost. Please don't try to repair it yourself.",
+        "No drama. Bring it in or tell us at the desk and we'll sort a replacement charge."
+      ]
+    },
+    {
+      "tag": "lost_card",
+      "patterns": [
+        "I've lost my library card",
+        "I need a replacement card",
+        "My card is missing",
+        "Can I borrow without my card?",
+        "Someone stole my card",
+        "My card is damaged"
+      ],
+      "responses": [
+        "We can issue a replacement for £2, and cancel the old one straight away so nobody else can use it.",
+        "Let us know as soon as possible and we'll block the old card. Photo ID is enough to borrow meanwhile."
+      ]
+    },
+    {
+      "tag": "ebooks_digital",
+      "patterns": [
+        "Do you have ebooks?",
+        "Can I borrow audiobooks?",
+        "How do I read on my Kindle?",
+        "Is there a library app?",
+        "Can I download books at home?",
+        "Do you have digital magazines?",
+        "Online newspapers?"
+      ],
+      "responses": [
+        "Yes - ebooks, audiobooks, magazines and newspapers, all free with your card through our app.",
+        "Our digital collection works on phones, tablets and most e-readers. Want help setting it up?"
+      ]
+    },
+    {
+      "tag": "computers_printing",
+      "patterns": [
+        "Can I use a computer?",
+        "Do you have free wifi?",
+        "How do I print something?",
+        "Is there a scanner?",
+        "Can I photocopy here?",
+        "How much is printing?",
+        "Do I need to book a PC?"
+      ],
+      "responses": [
+        "Free wifi throughout, and public computers bookable in one-hour slots. Printing is 10p a page black and white.",
+        "Computers are free with your card. Printing, scanning and photocopying are all available at the desk."
+      ]
+    },
+    {
+      "tag": "study_spaces",
+      "patterns": [
+        "Is there a quiet area?",
+        "Can I book a study room?",
+        "Do you have desks I can work at?",
+        "Is there somewhere to study?",
+        "Can I bring my laptop?",
+        "Are there group work rooms?",
+        "Is it noisy in there?"
+      ],
+      "responses": [
+        "We have a silent study floor and four bookable rooms for group work. Shall I check availability?",
+        "Plenty of desks with power sockets, plus a quiet floor upstairs. Rooms can be booked up to a week ahead."
+      ]
+    },
+    {
+      "tag": "events_activities",
+      "patterns": [
+        "What events are on?",
+        "Do you have a book club?",
+        "Is there story time for kids?",
+        "Any author talks coming up?",
+        "What's happening this week?",
+        "Do you run classes?",
+        "Are there activities in the holidays?"
+      ],
+      "responses": [
+        "We run story time, two book clubs, computer classes and regular author talks. Which interests you?",
+        "There's something most days. Want me to list this week's events?"
+      ]
+    },
+    {
+      "tag": "interlibrary_request",
+      "patterns": [
+        "Can you get a book from another library?",
+        "You don't have the book I need",
+        "Can you order it in for me?",
+        "Request from another branch",
+        "Can you buy a book I suggest?",
+        "How do I get a title you don't stock?"
+      ],
+      "responses": [
+        "Yes - we can request it from another branch or library service. There's a small fee for items from outside the county.",
+        "We take purchase suggestions too. Give me the title and author and I'll pass it on."
+      ]
+    },
+    {
+      "tag": "children_services",
+      "patterns": [
+        "Do you have a children's section?",
+        "Can my child join?",
+        "Is there a summer reading challenge?",
+        "Books for a five year old",
+        "Do kids pay fines?",
+        "Is there anything for toddlers?",
+        "Homework help for children?"
+      ],
+      "responses": [
+        "The children's library is on the ground floor, and under-16s never pay late charges. Story time is Tuesday and Thursday mornings.",
+        "Children can join free from birth. We run the summer reading challenge and homework clubs after school."
+      ]
+    },
+    {
+      "tag": "accessibility",
+      "patterns": [
+        "Do you have large print books?",
+        "Is the library wheelchair accessible?",
+        "Can you deliver books to my home?",
+        "Do you have audiobooks for blind readers?",
+        "Is there a hearing loop?",
+        "I can't get to the library easily",
+        "Step free access?"
+      ],
+      "responses": [
+        "Yes - large print, audiobooks, step-free access throughout and a hearing loop at the desk.",
+        "We run a free home delivery service for anyone who can't get in easily. Shall I put you in touch?"
+      ]
+    },
+    {
+      "tag": "human_handoff",
+      "patterns": [
+        "I want to speak to a librarian",
+        "Can I talk to a person?",
+        "Put me through to staff",
+        "I need real help",
+        "Transfer me to the desk",
+        "You're not understanding me"
+      ],
+      "responses": [
+        "Of course - a librarian is at the front desk, or I can take a message.",
+        "I'll pass you to a person. The desk is staffed during all opening hours."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "asdfgh",
+        "blah blah",
+        "qwerty",
+        "random nonsense",
+        "I don't know",
+        "aaaa"
+      ],
+      "responses": [
+        "Sorry, I didn't catch that. Could you rephrase?",
+        "I'm not sure I follow - try asking a different way?",
+        "That one's beyond me. A librarian at the desk can help."
+      ]
+    }
+  ]
+}

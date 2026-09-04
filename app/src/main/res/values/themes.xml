@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Compose draws the UI; this only styles the window before Compose takes over. -->
+    <style name="Theme.Chatbot" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+</resources>

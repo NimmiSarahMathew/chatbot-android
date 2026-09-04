@@ -1,0 +1,95 @@
+# Chatbot
+
+An offline library-assistant chatbot for Android. Kotlin, Jetpack Compose,
+TensorFlow Lite. No network calls — the model runs on the device.
+
+The model is trained separately in Python:
+**[NimmiSarahMathew/chatbot-python](https://github.com/NimmiSarahMathew/chatbot-python)**
+
+## How a message is answered
+
+```mermaid
+flowchart TD
+    U["User types<br/><b>Can I renew my books?</b>"]
+    T["1. tokenise + lemmatise<br/><i>lemmas.json</i>"]
+    B["2. bag of words<br/><i>words.json, gives 272 numbers</i>"]
+    M["3. MODEL<br/><i>chatbot.tflite</i>"]
+    N["4. winning position<br/><i>classes.json gives the tag</i>"]
+    R["5. pick a response<br/><i>intents.json</i>"]
+    O["<b>Renewals are easy online...</b>"]
+
+    U --> T --> B --> M --> N --> R --> O
+
+    style M fill:#04BCA9,color:#ffffff
+```
+
+Only step 3 is machine learning. It turns a sentence into a single number.
+Everything else is plain Kotlin.
+
+## Limits
+
+The bot can only say sentences written in `intents.json`. It classifies, it does
+not generate. Adding a new intent means editing the Python training data and
+retraining — the model was built with exactly 25 outputs.
+
+## Assets
+
+All five live in `app/src/main/assets`. They are derived from the Python
+project's training output — the model plus its vocabulary and tag lists.
+
+> The Python repo stores the vocabulary and tags as `words.pkl` / `classes.pkl`.
+> Kotlin cannot read pickle and has no WordNet, so the JSON copies here are
+> exported from them. Re-export after any retrain — the vocabulary order defines
+> the model's input wiring, so an old word list with a new model fails silently.
+
+| File | Job |
+|---|---|
+| `chatbot.tflite` | The classifier. Takes 272 floats, returns 25 probabilities. |
+| `words.json` | Vocabulary. Position 111 means `heya`, and so on. |
+| `lemmas.json` | **Needed only because Kotlin has no WordNet.** Python lemmatises using NLTK's WordNet library; Android has no equivalent, so the word→lemma pairs the model actually needs (`books`→`book`) are exported as a plain lookup table. |
+| `classes.json` | Turns the winning position back into an intent tag. |
+| `intents.json` | The responses. One is chosen at random per tag. |
+
+**Replace all five together.** `words.json` and `classes.json` define the model's
+input and output wiring. A new model with an old word list still runs, still
+looks confident, and is wrong on every message.
+
+## Code
+
+```
+app/src/main/java/com/example/chatbot/
+├── MainActivity.kt          entry point
+├── Constants.kt             asset names, confidence floor, contractions
+├── ml/ChatEngine.kt         tokenise, encode, run the model
+└── ui/
+    ├── ChatScreen.kt        the screen
+    ├── Message.kt
+    ├── components/          MessageBubble, MessageInput
+    └── theme/               colours, theme
+```
+
+`ml/` has no Compose imports and `ui/` has no TensorFlow imports.
+
+### ChatEngine
+
+`ChatEngine.kt` must tokenise **exactly** as the Python training pipeline does.
+If the two diverge, word positions shift and predictions break with no error
+raised. It handles two cases that are easy to get wrong:
+
+- **Contractions** — NLTK splits `don't` into `do` + `n't`, so the Kotlin
+  tokeniser does too.
+- **Nothing recognised** — if no word matches the vocabulary, it falls back
+  instead of trusting the model, which returns a confident-looking answer from
+  an all-zero input.
+
+## Build
+
+```
+./gradlew :app:assembleDebug
+```
+
+Requires JDK 17. Gradle 8.11.1, AGP 8.10.0, compileSdk 35, minSdk 24.
+
+The `.tflite` must stay uncompressed in the APK — it is memory-mapped. This is
+handled by `androidResources { noCompress += "tflite" }` in `app/build.gradle.kts`.
+

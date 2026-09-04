@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chatbot</string>
+    <string name="title">Library Assistant</string>
+    <string name="send">Send</string>
+    <string name="hint_message">Ask about books, renewals, hours…</string>
+    <string name="greeting">Hello! Ask me about joining, borrowing, renewals, opening hours, computers or events.</string>
+    <string name="no_answer">Sorry, I don\'t have an answer for that.</string>
+</resources>
